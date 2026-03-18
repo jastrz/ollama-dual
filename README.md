@@ -5,7 +5,6 @@ Simple script to run two Ollama instances simultaneously—one for chat/agent, o
 ## Install
 
 ```bash
-cd ollama_runner
 chmod +x installer.sh ollama-dual.sh
 ./installer.sh
 source ~/.bashrc
