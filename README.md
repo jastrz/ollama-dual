@@ -1,4 +1,4 @@
-# Ollama Runner
+# Ollama Dual
 
 Simple script to run two Ollama instances simultaneously—one for chat/agent, one for autocomplete.
 
