@@ -2,6 +2,8 @@
 
 Simple script to run two Ollama instances simultaneously—one for chat/agent, one for autocomplete.
 
+Requires: [Ollama](https://github.com/ollama/ollama) installed.
+
 ## Install
 
 ```bash
@@ -29,9 +31,9 @@ Edit variables in `ollama-dual.sh`:
 
 | Variable | Default |
 |----------|---------|
-| CHAT_HOST | 127.0.0.1:11434 |
-| AUTOCOMPLETE_HOST | 127.0.0.1:11435 |
-| CHAT_MODEL | minimax-m2.5:cloud |
-| AUTOCOMPLETE_MODEL | qwen3.5:2b |
+| CHAT_HOST | 127.0.0.1:11435 |
+| AUTOCOMPLETE_HOST | 127.0.0.1:11436 |
+| CHAT_MODEL | minimax-m2.7:cloud |
+| AUTOCOMPLETE_MODEL | qwen2.5-coder:3b |
 
 Logs: `~/.ollama/logs/`
