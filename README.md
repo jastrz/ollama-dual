@@ -32,7 +32,7 @@ Edit variables in `ollama-dual.sh`:
 | Variable | Default |
 |----------|---------|
 | CHAT_HOST | 127.0.0.1:11435 |
-| AUTOCOMPLETE_HOST | 127.0.0.1:11436|
+| AUTOCOMPLETE_HOST | 127.0.0.1:11436 |
 | CHAT_MODEL | minimax-m2.7:cloud |
 | AUTOCOMPLETE_MODEL | qwen2.5-coder:3b |
 
