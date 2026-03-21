@@ -39,7 +39,29 @@ start() {
 
 stop() {
   echo "Stopping Ollama instances..."
-  pkill -f "ollama serve" && echo "  Stopped all instances." || echo "  No instances running."
+
+  # Kill processes on specific ports - this works regardless of who started them
+  # Extract port numbers from config
+  CHAT_PORT=$(echo "$CHAT_HOST" | cut -d: -f2)
+  AUTOCOMPLETE_PORT=$(echo "$AUTOCOMPLETE_HOST" | cut -d: -f2)
+
+  # Try to kill process on chat port first
+  if command -v fuser > /dev/null 2>&1; then
+    fuser -k "$CHAT_PORT/tcp" 2>/dev/null
+    fuser -k "$AUTOCOMPLETE_PORT/tcp" 2>/dev/null
+    sleep 1
+  fi
+
+  # Fallback to pkill if fuser didn't work or doesn't exist
+  if pgrep -f "ollama serve" > /dev/null 2>&1; then
+    pkill -f "ollama serve" 2>/dev/null
+    sleep 1
+    if pgrep -f "ollama serve" > /dev/null 2>&1; then
+      pkill -9 -f "ollama serve" 2>/dev/null
+    fi
+  fi
+
+  echo "  Stopped all instances."
 }
 
 status() {
